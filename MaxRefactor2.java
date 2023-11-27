@@ -34,6 +34,19 @@ public class MaxRefactor2<T extends Comparable<T>> {
 	}
 
 	/*
+	 * @param: T
+	 * 
+	 * @return: None
+	 * 
+	 * @Description: Method to print the maximum of three numbers using generic
+	 * method
+	 */
+
+	private void printMax(T max) {
+		System.out.println("The maximum is " + max);
+	}
+
+	/*
 	 * @param: None
 	 * 
 	 * @return: None
@@ -43,12 +56,12 @@ public class MaxRefactor2<T extends Comparable<T>> {
 
 	public void testMaximum() {
 		T max = findMax();
-		System.out.println("The maximum is " + max);
+		printMax(max);
 	}
 
 	public static void main(String[] args) {
 
-		// Test Case 1 - Integer
+		// Test Case 1 - Integer(Variable arguments)
 		MaxRefactor2<Integer> integerMax = new MaxRefactor2<>(30, 20, 10, 90, 80, 55);
 		System.out.println("Integer Maximum");
 		integerMax.testMaximum();
