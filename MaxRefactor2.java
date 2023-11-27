@@ -2,38 +2,34 @@ package com.bridgelabs.MaxMin;
 
 public class MaxRefactor2<T extends Comparable<T>> {
 
-	private T var1;
-	private T var2;
-	private T var3;
+	private T[] values;
 
 	/*
-	 * @param: T, T, T
+	 * @param: variable-length argument lists
 	 * 
 	 * @return: int
 	 * 
 	 * @Description: Parameterized constructor to initialize the variables
 	 */
 
-	public MaxRefactor2(T var1, T var2, T var3) {
-		super();
-		this.var1 = var1;
-		this.var2 = var2;
-		this.var3 = var3;
+	public MaxRefactor2(T... var) {
+		this.values = var;
 	}
 
 	/*
-	 * @param: T, T, T
+	 * @param:None
 	 * 
 	 * @return: T
 	 * 
 	 * @Description: Method to find the maximum of three numbers
 	 */
 	private T findMax() {
-		T max = var1;
-		if (var2.compareTo(max) > 0)
-			max = var2;
-		if (var3.compareTo(max) > 0)
-			max = var3;
+		T max = values[0];
+		for (T value : values) {
+			if (value.compareTo(max) > 0) {
+				max = value;
+			}
+		}
 		return max;
 	}
 
@@ -53,7 +49,7 @@ public class MaxRefactor2<T extends Comparable<T>> {
 	public static void main(String[] args) {
 
 		// Test Case 1 - Integer
-		MaxRefactor2<Integer> integerMax = new MaxRefactor2<>(30, 20, 10);
+		MaxRefactor2<Integer> integerMax = new MaxRefactor2<>(30, 20, 10, 90, 80, 55);
 		System.out.println("Integer Maximum");
 		integerMax.testMaximum();
 		System.out.println();
@@ -66,7 +62,7 @@ public class MaxRefactor2<T extends Comparable<T>> {
 		System.out.println();
 
 		// Test Case 3 - String
-		MaxRefactor2<String> stringMax = new MaxRefactor2<>("Satoru", "Suguru", "Nanami");
+		MaxRefactor2<String> stringMax = new MaxRefactor2<>("Satoru", "Suguru", "Nanami", "Yuji");
 		System.out.println("String Maximum");
 		stringMax.testMaximum();
 		System.out.println();
